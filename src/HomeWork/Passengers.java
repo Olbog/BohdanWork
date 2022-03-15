@@ -31,7 +31,7 @@ class Passengers {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return (maxWeight + " maximum load" + "\n"
                 + count + " passengers in the car now" + "\n");
     }

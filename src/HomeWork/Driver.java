@@ -31,7 +31,7 @@ public class Driver {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return (woman + "\n"
                 + man + "\n");
     }
