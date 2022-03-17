@@ -7,11 +7,10 @@ class Truck extends Car{
         super(color, lenght, wheels,maxCount);
     }
 
-
-    private String color = "Розовый";
-    private String lenght = "9 m.";
-    private int wheels = 24;
-    private int maxCount = 4;
+    private String color = getColor();
+    private String lenght = getLenght();
+    private int wheels = getWheels();
+    private int maxCount = getMaxCount();
 
 
     @Override
@@ -40,4 +39,7 @@ class Truck extends Car{
 
 
 
-
+//    private String color = "Розовый";
+//    private String lenght = "9 m.";
+//    private int wheels = 24;
+//    private int maxCount = 4;
