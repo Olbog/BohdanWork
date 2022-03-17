@@ -10,12 +10,12 @@ class Car {
             this.go = go;
             this.stopIt = stopIt;
 
-
         }
 
         public void start() {
             System.out.println(go + "Двигатель работает!");
         }
+
 
         public void stop() {
             System.out.println(stopIt + "Двигатель остановлен");
@@ -24,8 +24,9 @@ class Car {
 
         @Override
         public String toString() {
-            return (this.go);
+            return (go + " Двигатель работает!");
         }
+
     }
 
 
