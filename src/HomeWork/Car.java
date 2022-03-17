@@ -1,6 +1,34 @@
 package HomeWork;
 
 class Car {
+
+    public class Engine {
+        private String go;
+        private String stopIt;
+
+        public Engine() {
+            this.go = go;
+            this.stopIt = stopIt;
+
+
+        }
+
+        public void start() {
+            System.out.println(go + "Двигатель работает!");
+        }
+
+        public void stop() {
+            System.out.println(stopIt + "Двигатель остановлен");
+        }
+
+
+        @Override
+        public String toString() {
+            return (this.go);
+        }
+    }
+
+
     private String color; // цвет данного транпорта
     private String lenght; // длина данного транпорта
     private int wheels; // кол-во колес данного транспорта
@@ -52,13 +80,15 @@ class Car {
         return maxCount;
     }
 
-    public static void roadA() {
+    public void roadA() {
         System.out.println("Вы выехали из точки А");
     }
 
-    public static void roadB() {
+    public void roadB() {
         System.out.println("Вы приехали в точку Б");
+
     }
+
 
     @Override
     public String toString() {
