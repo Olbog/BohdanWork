@@ -1,8 +1,10 @@
 package HomeWork;
 
-class Passengers {
+
+class Passengers extends Vehicles {
     private int maxWeight; // максимальный вес пассажиров в тоннах
     private int count; // количество фактических пассажиров
+
 
     public Passengers(int maxWeight, int count) {
         this.maxWeight = maxWeight;
@@ -22,17 +24,23 @@ class Passengers {
         return maxWeight;
     }
 
-    public void setCount(int count) {
+    public int setCount(int count) {
         this.count = count;
-    }
-
-    public int getCount() {
         return count;
     }
 
-    @Override
-    public String toString() {
-        return (maxWeight + " maximum load" + "\n"
-                + count + " passengers in the car now" + "\n");
+        public int getCount () {
+            return count;
+        }
+
+
+        @Override
+        public String toString () {
+            return (maxWeight + " maximum load" + "\n"
+                    + count + " passengers in the car now" + "\n");
+        }
     }
-}
+
+
+
+

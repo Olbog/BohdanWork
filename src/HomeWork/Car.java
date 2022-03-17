@@ -1,34 +1,6 @@
 package HomeWork;
 
-class Car {
-
-    public class Engine {
-        private String go;
-        private String stopIt;
-
-        public Engine() {
-            this.go = go;
-            this.stopIt = stopIt;
-
-        }
-
-        public void start() {
-            System.out.println(go + "Двигатель работает!");
-        }
-
-
-        public void stop() {
-            System.out.println(stopIt + "Двигатель остановлен");
-        }
-
-
-        @Override
-        public String toString() {
-            return (go + " Двигатель работает!");
-        }
-
-    }
-
+public abstract class Car extends Vehicles {
 
     private String color; // цвет данного транпорта
     private String lenght; // длина данного транпорта
@@ -42,12 +14,32 @@ class Car {
         this.maxCount = maxCount;
     }
 
-    public Car() {
-        this.color = "red";
-        this.lenght = "two and half meters";
-        this.wheels = 10;
-        this.maxCount = 50;
+
+    public abstract void gas();
+
+
+    public void brake(){
+        System.out.println("Автомобиль тормозит..");
     }
+
+    public void move(){
+
+        Stantions stantions1 = new Stantions();
+        stantions1.departureStation();
+        System.out.println("Ваше авто: " + "\n" + new Truck("красный", "7 м.", 3, 2));
+        Moto moto1 = new Moto("зеленый","1 м.", 2,2);
+        System.out.println(moto1);
+        System.out.println("Информация о водителях: " + "\n" + new Driver());
+        Passengers passengers1 = new Passengers();
+        System.out.println(passengers1);
+        Truck truck1 = new Truck("красный", "7 м.", 0, 2);
+        truck1.gas();
+        stantions1.destionationStation();
+        truck1.brake();
+
+    }
+
+
 
     public void setColor(String color) {
         this.color = color;
@@ -81,25 +73,6 @@ class Car {
         return maxCount;
     }
 
-    public void roadA() {
-        System.out.println("Вы выехали из точки А");
-    }
 
-    public void roadB() {
-        System.out.println("Вы приехали в точку Б");
-
-    }
-
-
-    @Override
-    public String toString() {
-        return (color + "\n"
-                + lenght + "\n"
-                + wheels + " wheels" + "\n"
-                + maxCount + " maximum number of passengers" + "\n");
-    }
 }
-
-
-
 

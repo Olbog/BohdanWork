@@ -1,6 +1,6 @@
 package HomeWork;
 
-public class Driver {
+public class Driver extends Vehicles{
     private String woman;
     private String man;
 
