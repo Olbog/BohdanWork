@@ -8,9 +8,11 @@ class Passengers extends Vehicles {
 
 
     public Passengers(int maxWeight, int count) {
-        this.maxWeight = getMaxWeight();
-        this.count = getCount();
+        this.maxWeight = maxWeight;
+        this.count = count;
     }
+
+
 
     public void setMaxWeight(int maxWeight) {
         this.maxWeight = maxWeight;
