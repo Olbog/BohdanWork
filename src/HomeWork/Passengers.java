@@ -6,14 +6,10 @@ class Passengers extends Vehicles {
     private int count; // количество фактических пассажиров
 
 
-    public Passengers(int maxWeight, int count) {
-        this.maxWeight = maxWeight;
-        this.count = count;
-    }
 
-    public Passengers() {
-        this.maxWeight = 10;
-        this.count = 14;
+    public Passengers(int maxWeight, int count) {
+        this.maxWeight = getMaxWeight();
+        this.count = getCount();
     }
 
     public void setMaxWeight(int maxWeight) {
@@ -36,8 +32,8 @@ class Passengers extends Vehicles {
 
         @Override
         public String toString () {
-            return (maxWeight + " maximum load" + "\n"
-                    + count + " passengers in the car now" + "\n");
+            return (this.maxWeight + " maximum load" + "\n"
+                    + this.count + " passengers in the car now" + "\n");
         }
     }
 

@@ -30,10 +30,12 @@ public abstract class Car extends Vehicles {
         Moto moto1 = new Moto("зеленый","1 м.", 2,2);
         System.out.println(moto1);
         System.out.println("Информация о водителях: " + "\n" + new Driver());
-        Passengers passengers1 = new Passengers();
+        Passengers passengers1 = new Passengers(10, 10);
         System.out.println(passengers1);
         Truck truck1 = new Truck("красный", "7 м.", 0, 2);
         truck1.gas();
+        truck1.roadA();
+        truck1.roadB();
         stantions1.destionationStation();
         truck1.brake();
 

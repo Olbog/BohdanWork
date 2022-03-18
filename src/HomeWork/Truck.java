@@ -36,10 +36,3 @@ class Truck extends Car{
     }
 
 }
-
-
-
-//    private String color = "Розовый";
-//    private String lenght = "9 m.";
-//    private int wheels = 24;
-//    private int maxCount = 4;
