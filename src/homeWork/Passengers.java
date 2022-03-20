@@ -1,9 +1,9 @@
-package HomeWork;
+package homeWork;
 
 
-class Passengers extends Vehicles {
-    private int maxWeight; // максимальный вес пассажиров в тоннах
-    private int count; // количество фактических пассажиров
+class Passengers extends Runner {
+    private int maxWeight; // maximum weight of passengers in tons
+    private int count; // number of actual passengers
 
 
 
@@ -32,12 +32,14 @@ class Passengers extends Vehicles {
         }
 
 
-        @Override
-        public String toString () {
-            return (this.maxWeight + " maximum load" + "\n"
-                    + this.count + " passengers in the car now" + "\n");
-        }
+    @Override
+    public String toString() {
+        return "Passengers{" +
+                "maxWeight=" + maxWeight +
+                ", count=" + count +
+                '}';
     }
+}
 
 
 
