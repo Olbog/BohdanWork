@@ -10,6 +10,7 @@ public class Runner {
 
         Vehicles moto = new Moto("red", "1 m.",2, 1 );
         Vehicles track = new Truck("blue", "6 m.",18, 4 );
+        Maps.Loading();
         start(moto);
         start(track);
     }
