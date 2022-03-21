@@ -20,5 +20,6 @@ public abstract class Car extends Vehicles {
     public void setDoors(boolean doors) {
         this.doors = doors;
     }
+
 }
 

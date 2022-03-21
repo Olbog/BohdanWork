@@ -55,6 +55,9 @@ public abstract class Vehicles {
     public void setMaxCount(int maxCount) {
         this.maxCount = maxCount;
     }
+    public final void startTime(){
+        System.out.println("The start time of the trip is at 8 p.m. for all vehicles");
+    }
 
     @Override
     public String toString() {

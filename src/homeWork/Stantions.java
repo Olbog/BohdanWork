@@ -1,6 +1,6 @@
 package homeWork;
 
-public class Stantions {
+public final class Stantions {
     private String name;
 
     public Stantions(String name) {
