@@ -9,15 +9,21 @@ public class Runner {
 
 
         Vehicles moto = new Moto("red", "1 m.",2, 1 );
+        Vehicles moto2 = new Moto("red", "1 m.",2, 1 );
         Vehicles track = new Truck("blue", "6 m.",18, 4 );
-        Maps.Loading();
+        Vehicles sedan = new Sedan("Green","2.3 m.", 4, 5 );
+        Maps.loading();
         start(moto);
+        start(sedan);
         start(track);
+        System.out.println(moto.hashCode());
+        System.out.println(moto2.hashCode());
+        System.out.println(moto.equals(moto2));
     }
     public static void start (Vehicles vehicles){
         Stantions departureStantion = new Stantions("Minsk");
         Stantions destinationStation = new Stantions("Brest");
-        Passengers passengers = new Passengers(10, 2);
+        Passengers passengers = new Passengers(10, 1);
         Driver driver = new Driver("woman", "Kate", 29);
         vehicles.move(departureStantion, destinationStation, passengers, driver);
     }
