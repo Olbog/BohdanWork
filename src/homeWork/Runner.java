@@ -30,7 +30,7 @@ public class Runner {
         try {
             departureStantion.setName("Orsha");
         } catch (StationException ex){
-            ex.printStackTrace();
+            System.err.println(ex.getMessage());
             departureStantion.setName("Minsk");
         }
         Stantions destinationStation = new Stantions("Brest");
@@ -39,6 +39,7 @@ public class Runner {
         try {
             driver.setAge(17);
         } catch (AgeException e){
+            e.printStackTrace();
             driver.setAge(18);
         }
 
