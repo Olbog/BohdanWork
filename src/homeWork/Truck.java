@@ -1,7 +1,6 @@
 package homeWork;
 
-class Truck extends Car implements Engine,LoadCapacity,Doors,Roof,Speed {
-
+class Truck extends Car implements IMoveGoods, IDoors, IAirConditioningOn {
 
     public Truck(String color, String lenght, int wheels, int maxCount) {
         super(color, lenght, wheels, maxCount);
@@ -16,15 +15,18 @@ class Truck extends Car implements Engine,LoadCapacity,Doors,Roof,Speed {
         } else {
             System.out.println("your track will drive from " + departureStantion.getName() + " to " + destinationStation.getName());
             startTime();
-            fuelConsuption();
-            maxGravity();
-            countDoors();
-            isRoof();
-            maxSpeed();
+            moveGoods();
+            openDoors();
             gas();
+            turnConditioningOn();
             brake();
         }
     }
+    @Override
+    public void gas() {
+        System.out.println("Track started!");
+    }
+
     @Override
     public String toString() {
         return "Truck{" +
@@ -36,28 +38,17 @@ class Truck extends Car implements Engine,LoadCapacity,Doors,Roof,Speed {
     }
 
     @Override
-    public void gas() {
-        System.out.println("Track started!");
+    public void moveGoods() {
+        System.out.println("This type of transport can moves goods before 27 tons");
     }
 
     @Override
-    public void fuelConsuption(){
-        System.out.println("Consuption fuel for this track is 27 l./100 km.");
+    public void openDoors() {
+        System.out.println("You have only 2 open doors in your track..");
     }
+
     @Override
-    public void maxGravity(){
-        System.out.println("Maximum gravity fot this track is 27 tons");
-    }
-    @Override
-    public void countDoors(){
-        System.out.println("There are 2 doors in this track ");
-    }
-    @Override
-    public void isRoof(){
-        System.out.println("This track has a small roof" + " and " + hatch);
-    }
-    @Override
-    public void maxSpeed(){
-        System.out.println("Maximum speed of this track is 110 km/hour ");
+    public void turnConditioningOn() {
+        System.out.println("Conditioning is working");
     }
 }

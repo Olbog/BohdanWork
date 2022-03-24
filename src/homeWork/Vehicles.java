@@ -1,5 +1,7 @@
 package homeWork;
 
+import java.util.Objects;
+
 public abstract class Vehicles {
 
     private String color; // color this vehicles
@@ -67,5 +69,19 @@ public abstract class Vehicles {
                 ", wheels=" + wheels +
                 ", maxCount=" + maxCount +
                 '}';
+
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vehicles vehicles = (Vehicles) o;
+        return wheels == vehicles.wheels && maxCount == vehicles.maxCount && color.equals(vehicles.color) && lenght.equals(vehicles.lenght);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(color, lenght, wheels, maxCount);
     }
 }

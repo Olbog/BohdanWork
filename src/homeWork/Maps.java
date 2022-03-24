@@ -7,7 +7,7 @@ public class Maps {
         map = "The world's map";
     }
 
-    public static void Loading(){
+    public static void loading(){
         System.out.println(map + " is loading...");
     }
 }

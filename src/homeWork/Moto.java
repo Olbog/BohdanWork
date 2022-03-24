@@ -1,6 +1,6 @@
 package homeWork;
 
-public class Moto extends Vehicles implements Engine,LoadCapacity,Doors,Roof,Speed{
+public class Moto extends Vehicles implements IRidingOnWheel, IExtremeDriving{
 
     public Moto(String color, String lenght, int wheels, int maxCount){
         super(color, lenght, wheels,maxCount);
@@ -15,15 +15,15 @@ public class Moto extends Vehicles implements Engine,LoadCapacity,Doors,Roof,Spe
         } else {
             System.out.println("your moto will drive from " + departureStantion.getName() + " to " + destinationStation.getName());
             startTime();
-            fuelConsuption();
-            maxGravity();
-            countDoors();
-            isRoof();
-            maxSpeed();
+            oneWheel();
+            extreme();
             gas();
             brake();
         }
     }
+
+
+
     @Override
     public void gas(){
         System.out.println("Moto started!");
@@ -38,25 +38,16 @@ public class Moto extends Vehicles implements Engine,LoadCapacity,Doors,Roof,Spe
                 ", maxCount=" + getMaxCount() +
                 '}';
     }
+
     @Override
-    public void fuelConsuption(){
-        System.out.println("Consuption fuel for this moto is 3 l./100 km.");
+    public void oneWheel() {
+        System.out.println("You are staying on 1 wheel !");
     }
+
     @Override
-    public void maxGravity(){
-        System.out.println("Maximum gravity fot this moto is 0.2 tons");
+    public void extreme() {
+        System.out.println("You did performed a standing ride");
     }
-    @Override
-    public void countDoors(){
-        System.out.println("This moto hasn't a doors ");
-    }
-    @Override
-    public void isRoof(){
-        System.out.println("This moto hasn't a roof");
-    }
-    @Override
-    public void maxSpeed(){
-        System.out.println("Maximum speed of this moto is 230 km/hour ");
-    }
+
 }
 

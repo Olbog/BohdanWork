@@ -1,6 +1,6 @@
 package homeWork;
 
-class Sedan extends Car implements Engine,LoadCapacity,Doors,Roof,Speed{
+class Sedan extends Car implements IMoveGoods, IDoors, IAirConditioningOn, IExtremeDriving{
 
     public Sedan(String color, String lenght, int wheels, int maxCount){
         super(color, lenght, wheels,maxCount);
@@ -15,13 +15,11 @@ class Sedan extends Car implements Engine,LoadCapacity,Doors,Roof,Speed{
         } else {
             System.out.println("your auto will drive from " + departureStantion.getName() + " to " + destinationStation.getName());
             startTime();
-            maxGravity();
-            fuelConsuption();
-            maxGravity();
-            countDoors();
-            isRoof();
-            maxSpeed();
+            moveGoods();
+            openDoors();
             gas();
+            turnConditioningOn();
+            extreme();
             brake();
         }
     }
@@ -30,33 +28,31 @@ class Sedan extends Car implements Engine,LoadCapacity,Doors,Roof,Speed{
         System.out.println("Sedan started");
     }
 
-
     @Override
-    public String toString(){
-        return (getColor() + "\n" +
-                getLenght() + "\n"+
-                getWheels() + "\n"+
-                getMaxCount() + "\n");
+    public String toString() {
+        return "Sedan{" +
+                "color='" + getColor() + '\'' +
+                ", lenght='" + getLenght() + '\'' +
+                ", wheels=" + getWheels() +
+                ", maxCount=" + getMaxCount() +
+                '}';
     }
 
     @Override
-    public void fuelConsuption(){
-        System.out.println("Consuption fuel for this sedan is 8 l./100 km.");
+    public void moveGoods() {
+        System.out.println(HATCH);
     }
     @Override
-    public void maxGravity(){
-        System.out.println("Maximum gravity fot this sedan is 1.5 tons");
+    public void openDoors() {
+        System.out.println("You have 3 open doors in your sedan..");
+    }
+
+    @Override
+    public void turnConditioningOn() {
+        System.out.println("Conditioning is working");
     }
     @Override
-    public void countDoors(){
-        System.out.println("There are 4 doors in this sedan ");
-    }
-    @Override
-    public void isRoof(){
-        System.out.println("This sedan has a big roof" + " and " + hatch);
-    }
-    @Override
-    public void maxSpeed(){
-        System.out.println("Maximum speed of this sedan is 170 km/hour ");
+    public void extreme() {
+        System.out.println("You did the police u-turn");
     }
 }

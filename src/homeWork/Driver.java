@@ -31,8 +31,12 @@ public class Driver {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setAge(int age)throws AgeException {
+        if (age < 18) {
+            throw new AgeException("You're too young for this transport");
+        } else {
+            this.age = age;
+        }
     }
 
     @Override
