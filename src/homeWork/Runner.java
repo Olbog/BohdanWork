@@ -1,11 +1,11 @@
 package homeWork;
 
 public class Runner {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws AgeException, StationException {
         Stantions departureStantion = new Stantions("Minsk");
         Stantions destinationStation = new Stantions("Brest");
         Passengers passengers = new Passengers(10, 4);
-        Driver driver = new Driver("woman", "Kate", 29);
+        Driver driver = new Driver("woman", "Kate", 18);
 
 
         Vehicles moto = new Moto("red", "1 m.",2, 1 );
@@ -25,11 +25,24 @@ public class Runner {
         start(sedan2);
     }
 
-    public static void start (Vehicles vehicles){
-        Stantions departureStantion = new Stantions("Minsk");
+    public static void start (Vehicles vehicles) throws AgeException, StationException {
+        Stantions departureStantion = new Stantions("");
+        try {
+            departureStantion.setName("Orsha");
+        } catch (StationException ex){
+            ex.printStackTrace();
+            departureStantion.setName("Minsk");
+        }
         Stantions destinationStation = new Stantions("Brest");
         Passengers passengers = new Passengers(10, 1);
-        Driver driver = new Driver("woman", "Kate", 29);
+        Driver driver = new Driver("woman", "Kate", 17);
+        try {
+            driver.setAge(17);
+        } catch (AgeException e){
+            driver.setAge(18);
+        }
+
+
         vehicles.move(departureStantion, destinationStation, passengers, driver);
     }
     public static void start (IMoveGoods IMoveGoods){

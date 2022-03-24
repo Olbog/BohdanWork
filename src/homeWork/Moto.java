@@ -21,6 +21,9 @@ public class Moto extends Vehicles implements IRidingOnWheel, IExtremeDriving{
             brake();
         }
     }
+
+
+
     @Override
     public void gas(){
         System.out.println("Moto started!");
