@@ -1,6 +1,6 @@
-package homeWork;
+package homework;
 
-class Truck extends Car implements IMoveGoods, IDoors, IAirConditioningOn {
+class Truck extends Car implements IMoveGoods, IDoors, IAirConditioning {
 
     public Truck(String color, String lenght, int wheels, int maxCount) {
         super(color, lenght, wheels, maxCount);
@@ -49,6 +49,10 @@ class Truck extends Car implements IMoveGoods, IDoors, IAirConditioningOn {
 
     @Override
     public void turnConditioningOn() {
-        System.out.println("Conditioning is working");
+    }
+
+    @Override
+    public void turnConditioningOff() {
+        System.out.println("Conditioning isnt't working");
     }
 }

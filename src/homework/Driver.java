@@ -1,4 +1,4 @@
-package homeWork;
+package homework;
 
 public class Driver {
     private String gender;

@@ -1,6 +1,8 @@
-package homeWork;
+package homework;
 
 import java.util.Objects;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public abstract class Vehicles {
 
@@ -15,6 +17,8 @@ public abstract class Vehicles {
         this.wheels = wheels;
         this.maxCount = maxCount;
     }
+    private static final Logger LOGGER = LogManager.getLogger(Vehicles.class);
+
 
 
     public abstract void gas();
@@ -84,4 +88,6 @@ public abstract class Vehicles {
     public int hashCode() {
         return Objects.hash(color, lenght, wheels, maxCount);
     }
+
+
 }

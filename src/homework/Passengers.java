@@ -1,4 +1,6 @@
-package homeWork;
+package homework;
+
+
 
 
 class Passengers extends Runner {
@@ -11,6 +13,8 @@ class Passengers extends Runner {
         this.maxWeight = maxWeight;
         this.count = count;
     }
+
+
 
 
 

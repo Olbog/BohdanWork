@@ -1,6 +1,6 @@
-package homeWork;
+package homework;
 
-class Sedan extends Car implements IMoveGoods, IDoors, IAirConditioningOn, IExtremeDriving{
+class Sedan extends Car implements IMoveGoods, IDoors, IAirConditioning, IExtremeDriving{
 
     public Sedan(String color, String lenght, int wheels, int maxCount){
         super(color, lenght, wheels,maxCount);
@@ -51,6 +51,11 @@ class Sedan extends Car implements IMoveGoods, IDoors, IAirConditioningOn, IExtr
     public void turnConditioningOn() {
         System.out.println("Conditioning is working");
     }
+
+    @Override
+    public void turnConditioningOff() {
+    }
+
     @Override
     public void extreme() {
         System.out.println("You did the police u-turn");
