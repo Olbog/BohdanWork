@@ -28,7 +28,8 @@ public abstract class Vehicles {
         System.out.println("Auto is stopping");
     }
 
-    public abstract void move(Stantions departureStantion, Stantions destinationStation,Passengers passengers, Driver driver);
+    public abstract void move(Stantions departureStantion, Stantions destinationStation,Passengers passengers, Driver driver)
+            throws MotoExceptions;
 
     public String getColor() {
         return color;
