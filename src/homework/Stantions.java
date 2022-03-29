@@ -20,7 +20,7 @@ public final class Stantions {
 
 
     public Marker setName(String name) throws StationException {
-        if (name == "Orsha") {
+        if (name.equals("Orsha")) {
             throw new StationException("This station is close");
         } else {
             this.name = name;

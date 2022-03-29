@@ -8,10 +8,6 @@ import java.util.List;
 
 public class Runner {
     public static void main(String[] args) throws AgeException, StationException {
-        Stantions departureStantion = new Stantions("Minsk");
-        Stantions destinationStation = new Stantions("Brest");
-        Passengers passengers = new Passengers(10, 4);
-        Driver driver = new Driver("woman", "Kate", 18);
 
 
         Vehicles moto = new Moto("red", "1 m.",2, 1 );
@@ -79,8 +75,8 @@ public class Runner {
 
         vehicles.move(departureStantion, destinationStation, passengers, driver);
     }
-    public static void start (IMoveGoods IMoveGoods){
-        IMoveGoods.moveGoods();
+    public static void start (IMoveGoods iMoveGoods){
+        iMoveGoods.moveGoods();
 
     }
 }
