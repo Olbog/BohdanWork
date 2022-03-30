@@ -7,7 +7,7 @@ import java.util.List;
 
 
 public class Runner {
-    public static void main(String[] args) throws AgeException, StationException, MotoExceptions {
+    public static void main(String[] args) throws AgeException, StationException, MotoExceptions, TruckExceptions {
 
 
         Vehicles moto = new Moto("red", "1 m.",2, 1 );
@@ -22,7 +22,7 @@ public class Runner {
         LOGGER.info(moto2.hashCode());
         LOGGER.info(moto.equals(moto2));
 
-        IMoveGoods truck = new Truck("blue", "6 m.",18, 4 );
+        IMoveGoods truck = new Truck("blue", "6 m.",18, 2 );
         IMoveGoods sedan2 = new Sedan("Green","2.3 m.", 4, 5 );
         start(sedan2);
 
@@ -32,7 +32,7 @@ public class Runner {
     }
     private static final Logger LOGGER = LogManager.getLogger(Runner.class);
 
-    public static void start (Vehicles vehicles) throws AgeException, StationException, MotoExceptions {
+    public static void start (Vehicles vehicles) throws AgeException, StationException, MotoExceptions, TruckExceptions {
         Stantions departureStantion = new Stantions("");
         try {
             LOGGER.info(departureStantion.setName("Orsha"));
@@ -41,7 +41,7 @@ public class Runner {
             departureStantion.setName("Minsk");
         }
         Stantions destinationStation = new Stantions("Brest");
-        Passengers passengers = new Passengers(10, 1);
+        Passengers passengers = new Passengers(10, 3);
         Driver driver = new Driver("woman", "Kate", 17);
         try {
             driver.setAge(17);

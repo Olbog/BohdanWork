@@ -1,19 +1,24 @@
 package homework;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 class Sedan extends Car implements IMoveGoods, IDoors, IAirConditioning, IExtremeDriving{
+
+    private static final Logger LOGGER = LogManager.getLogger(Sedan.class);
 
     public Sedan(String color, String lenght, int wheels, int maxCount){
         super(color, lenght, wheels,maxCount);
     }
 
     public void move(Stantions departureStantion, Stantions destinationStation,Passengers passengers, Driver driver){
-        System.out.println("Your auto: " + "\n" + this);
-        System.out.println("Info about drivers: " + "\n" + driver);
-        System.out.println(passengers);
+        LOGGER.info("Your auto: " + "\n" + this);
+        LOGGER.info("Info about drivers: " + "\n" + driver);
+        LOGGER.info(passengers);
         if (passengers.getCount() > 4){
-            System.out.println("Sorry, we will not drive, a lot of passengers for SEDAN");
+            LOGGER.info("Sorry, we will not drive, a lot of passengers for SEDAN");
         } else {
-            System.out.println("your auto will drive from " + departureStantion.getName() + " to " + destinationStation.getName());
+            LOGGER.info("your auto will drive from " + departureStantion.getName() + " to " + destinationStation.getName());
             startTime();
             moveGoods();
             openDoors();
@@ -25,7 +30,7 @@ class Sedan extends Car implements IMoveGoods, IDoors, IAirConditioning, IExtrem
     }
     @Override
     public void gas(){
-        System.out.println("Sedan started");
+        LOGGER.info("Sedan started");
     }
 
     @Override
@@ -40,16 +45,16 @@ class Sedan extends Car implements IMoveGoods, IDoors, IAirConditioning, IExtrem
 
     @Override
     public void moveGoods() {
-        System.out.println(HATCH);
+        LOGGER.info(HATCH);
     }
     @Override
     public void openDoors() {
-        System.out.println("You have 3 open doors in your sedan..");
+        LOGGER.info("You have 3 open doors in your sedan..");
     }
 
     @Override
     public void turnConditioningOn() {
-        System.out.println("Conditioning is working");
+        LOGGER.info("Conditioning is working");
     }
 
     @Override
@@ -58,6 +63,6 @@ class Sedan extends Car implements IMoveGoods, IDoors, IAirConditioning, IExtrem
 
     @Override
     public void extreme() {
-        System.out.println("You did the police u-turn");
+        LOGGER.info("You did the police u-turn");
     }
 }

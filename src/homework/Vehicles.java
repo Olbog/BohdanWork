@@ -25,11 +25,11 @@ public abstract class Vehicles {
 
 
     public void brake(){
-        System.out.println("Auto is stopping");
+        LOGGER.info("Auto is stopping");
     }
 
     public abstract void move(Stantions departureStantion, Stantions destinationStation,Passengers passengers, Driver driver)
-            throws MotoExceptions;
+            throws MotoExceptions, TruckExceptions;
 
     public String getColor() {
         return color;
@@ -63,7 +63,7 @@ public abstract class Vehicles {
         this.maxCount = maxCount;
     }
     public final void startTime(){
-        System.out.println("The start time of the trip is at 8 p.m. for all vehicles");
+        LOGGER.info("The start time of the trip is at 8 p.m. for all vehicles");
     }
 
     @Override

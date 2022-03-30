@@ -1,30 +1,52 @@
 package homework;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 class Truck extends Car implements IMoveGoods, IDoors, IAirConditioning {
+
+    private static final Logger LOGGER = LogManager.getLogger(Maps.class);
 
     public Truck(String color, String lenght, int wheels, int maxCount) {
         super(color, lenght, wheels, maxCount);
     }
 
-    public void move(Stantions departureStantion, Stantions destinationStation, Passengers passengers, Driver driver) {
-        System.out.println("Your auto: " + "\n" + this);
-        System.out.println("Info about drivers: " + "\n" + driver);
-        System.out.println(passengers);
-        if (passengers.getCount() > 2) {
-            System.out.println("Sorry, we will not drive, a lot of passengers for TRACK");
+    public void move(Stantions departureStantion, Stantions destinationStation, Passengers passengers, Driver driver)
+    throws TruckExceptions{
+        LOGGER.info("Your auto: " + "\n" + this);
+        if (driver.getAge() < 23){
+            try {
+                driver.setAge(25);
+            } catch (AgeException e) {
+                LOGGER.error("You don't have enough experience");
+            }
         } else {
-            System.out.println("your track will drive from " + departureStantion.getName() + " to " + destinationStation.getName());
-            startTime();
-            moveGoods();
-            openDoors();
-            gas();
-            turnConditioningOn();
-            brake();
+            LOGGER.info("Info about drivers: " + "\n" + driver);
         }
+
+        LOGGER.info(passengers);
+            try {
+                if (passengers.getCount() > 2) {
+                    throw new TruckExceptions("This truck can not take so many passengers ");
+
+                } else {
+                    LOGGER.info("your track will drive from " + departureStantion.getName() + " to " + destinationStation.getName());
+                    startTime();
+                    moveGoods();
+                    openDoors();
+                    gas();
+                    turnConditioningOn();
+                    brake();
+                }
+            }
+            catch (TruckExceptions e){
+                LOGGER.error(" Nobody is going, sorry! ", e);
+            }
+
     }
     @Override
     public void gas() {
-        System.out.println("Track started!");
+        LOGGER.info("Track started!");
     }
 
     @Override
@@ -39,12 +61,12 @@ class Truck extends Car implements IMoveGoods, IDoors, IAirConditioning {
 
     @Override
     public void moveGoods() {
-        System.out.println("This type of transport can moves goods before 27 tons");
+        LOGGER.info("This type of transport can moves goods before 27 tons");
     }
 
     @Override
     public void openDoors() {
-        System.out.println("You have only 2 open doors in your track..");
+        LOGGER.info("You have only 2 open doors in your track..");
     }
 
     @Override
@@ -53,6 +75,6 @@ class Truck extends Car implements IMoveGoods, IDoors, IAirConditioning {
 
     @Override
     public void turnConditioningOff() {
-        System.out.println("Conditioning isnt't working");
+        LOGGER.info("Conditioning isnt't working");
     }
 }

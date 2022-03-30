@@ -10,7 +10,7 @@ public abstract class Car extends Vehicles {
         super(color, lenght, wheels, maxCount);
         this.carBody = carBody;
     }
-    public Car(String color, String lenght, int wheels, int maxCount) {
+    public Car(String color, String lenght, int wheels, int maxCount)  {
         super(color, lenght, wheels, maxCount);
     }
 
@@ -21,6 +21,9 @@ public abstract class Car extends Vehicles {
 
     public void setDoors(boolean doors) {
         this.carBody = doors;
+    }
+
+    public static void main(String[] args) throws TruckExceptions{
     }
 
     @Override

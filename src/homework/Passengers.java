@@ -16,7 +16,8 @@ class Passengers extends Runner {
         this.count = count;
     }
     private static final Logger LOGGER = LogManager.getLogger(Passengers.class);
-    public static void partsForPessengers(){
+
+    public static void partsForPassengers(){
         List<Passengers> parts = new ArrayList<>();
 
         Passengers part1 = new Passengers(1,3);
