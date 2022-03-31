@@ -39,13 +39,9 @@ public final class Stantions {
         stations.add("Brest");
         stations.add("Vitebsk");
 
-        String stantion1FromCollection = stations.get(0);
-        String stantion2FromCollection = stations.get(1);
-        String stantion3FromCollection = stations.get(2);
-
-        LOGGER.info(stantion1FromCollection);
-        LOGGER.info(stantion2FromCollection);
-        LOGGER.info(stantion3FromCollection);
+        LOGGER.info(stations.get(0));
+        LOGGER.info(stations.get(1));
+        LOGGER.info(stations.get(2));
 
     }
 

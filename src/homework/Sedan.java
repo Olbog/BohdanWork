@@ -3,19 +3,23 @@ package homework;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
+import java.util.HashMap;
+import java.util.Map;
+
 class Sedan extends Car implements IMoveGoods, IDoors, IAirConditioning, IExtremeDriving{
 
     private static final Logger LOGGER = LogManager.getLogger(Sedan.class);
+
 
     public Sedan(String color, String lenght, int wheels, int maxCount){
         super(color, lenght, wheels,maxCount);
     }
 
-    public void move(Stantions departureStantion, Stantions destinationStation,Passengers passengers, Driver driver){
+    public void move(Stantions departureStantion, Stantions destinationStation,Passengers passengers, Driver driver) {
         LOGGER.info("Your auto: " + "\n" + this);
         LOGGER.info("Info about drivers: " + "\n" + driver);
         LOGGER.info(passengers);
-        if (passengers.getCount() > 4){
+        if (passengers.getCount() > 4) {
             LOGGER.info("Sorry, we will not drive, a lot of passengers for SEDAN");
         } else {
             LOGGER.info("your auto will drive from " + departureStantion.getName() + " to " + destinationStation.getName());
@@ -26,8 +30,17 @@ class Sedan extends Car implements IMoveGoods, IDoors, IAirConditioning, IExtrem
             turnConditioningOn();
             extreme();
             brake();
+
         }
-    }
+
+        Map<Sedan, Integer> map = new HashMap<>();
+        map.put(new Sedan("red", "2,1 m.", 4, 5), 3);
+        map.put(new Sedan("green", "2 m.", 4, 2), 5);
+        map.put(new Sedan("blue", "1,9 m.", 4, 4), 1);
+
+        LOGGER.info(map);
+        }
+
     @Override
     public void gas(){
         LOGGER.info("Sedan started");

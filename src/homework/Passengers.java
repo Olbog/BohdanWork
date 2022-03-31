@@ -3,6 +3,7 @@ package homework;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 class Passengers extends Runner {
@@ -18,7 +19,7 @@ class Passengers extends Runner {
     private static final Logger LOGGER = LogManager.getLogger(Passengers.class);
 
     public static void partsForPassengers(){
-        List<Passengers> parts = new ArrayList<>();
+        LinkedList<Passengers> parts = new LinkedList<>();
 
         Passengers part1 = new Passengers(1,3);
         Passengers part2 = new Passengers(1,1);
@@ -28,12 +29,9 @@ class Passengers extends Runner {
         parts.add(part2);
         parts.add(part3);
 
-        Passengers passengers1FromCollection = parts.get(0);
-        Passengers passengers2FromCollection = parts.get(1);
-        Passengers passengers3FromCollection = parts.get(2);
-        LOGGER.info(passengers1FromCollection);
-        LOGGER.info(passengers2FromCollection);
-        LOGGER.info(passengers3FromCollection);
+        LOGGER.info(parts.get(0));
+        LOGGER.info(parts.get(1));
+        LOGGER.info(parts.get(2));
     }
 
 
