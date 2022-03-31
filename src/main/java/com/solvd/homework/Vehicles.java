@@ -1,6 +1,8 @@
-package homeWork;
+package com.solvd.homework;
 
 import java.util.Objects;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public abstract class Vehicles {
 
@@ -15,16 +17,19 @@ public abstract class Vehicles {
         this.wheels = wheels;
         this.maxCount = maxCount;
     }
+    private static final Logger LOGGER = LogManager.getLogger(Vehicles.class);
+
 
 
     public abstract void gas();
 
 
     public void brake(){
-        System.out.println("Auto is stopping");
+        LOGGER.info("Auto is stopping");
     }
 
-    public abstract void move(Stantions departureStantion, Stantions destinationStation,Passengers passengers, Driver driver);
+    public abstract void move(Stantions departureStantion, Stantions destinationStation,Passengers passengers, Driver driver)
+            throws MotoExceptions, TruckExceptions;
 
     public String getColor() {
         return color;
@@ -58,7 +63,7 @@ public abstract class Vehicles {
         this.maxCount = maxCount;
     }
     public final void startTime(){
-        System.out.println("The start time of the trip is at 8 p.m. for all vehicles");
+        LOGGER.info("The start time of the trip is at 8 p.m. for all vehicles");
     }
 
     @Override
@@ -84,4 +89,6 @@ public abstract class Vehicles {
     public int hashCode() {
         return Objects.hash(color, lenght, wheels, maxCount);
     }
+
+
 }

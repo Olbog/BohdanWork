@@ -1,5 +1,9 @@
-package homeWork;
+package com.solvd.homework;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
+import java.util.LinkedList;
 
 class Passengers extends Runner {
     private int maxWeight; // maximum weight of passengers in tons
@@ -10,6 +14,23 @@ class Passengers extends Runner {
     public Passengers(int maxWeight, int count) {
         this.maxWeight = maxWeight;
         this.count = count;
+    }
+    private static final Logger LOGGER = LogManager.getLogger(Passengers.class);
+
+    public static void partsForPassengers(){
+        LinkedList<Passengers> parts = new LinkedList<>();
+
+        Passengers part1 = new Passengers(1,3);
+        Passengers part2 = new Passengers(1,1);
+        Passengers part3 = new Passengers(1,5);
+
+        parts.add(part1);
+        parts.add(part2);
+        parts.add(part3);
+
+        LOGGER.info(parts.get(0));
+        LOGGER.info(parts.get(1));
+        LOGGER.info(parts.get(2));
     }
 
 

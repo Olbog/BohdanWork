@@ -1,11 +1,11 @@
-package homeWork;
+package com.solvd.homework;
+
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 
 public class Runner {
-    public static void main(String[] args) throws AgeException, StationException {
-        Stantions departureStantion = new Stantions("Minsk");
-        Stantions destinationStation = new Stantions("Brest");
-        Passengers passengers = new Passengers(10, 4);
-        Driver driver = new Driver("woman", "Kate", 18);
+    public static void main(String[] args) throws AgeException, StationException, MotoExceptions, TruckExceptions {
 
 
         Vehicles moto = new Moto("red", "1 m.",2, 1 );
@@ -16,37 +16,44 @@ public class Runner {
         start(moto);
         start(sedan);
         start(track);
-        System.out.println(moto.hashCode());
-        System.out.println(moto2.hashCode());
-        System.out.println(moto.equals(moto2));
+        LOGGER.info(moto.hashCode());
+        LOGGER.info(moto2.hashCode());
+        LOGGER.info(moto.equals(moto2));
 
-        IMoveGoods truck = new Truck("blue", "6 m.",18, 4 );
+        IMoveGoods truck = new Truck("blue", "6 m.",18, 2 );
         IMoveGoods sedan2 = new Sedan("Green","2.3 m.", 4, 5 );
         start(sedan2);
-    }
 
-    public static void start (Vehicles vehicles) throws AgeException, StationException {
+
+
+
+    }
+    private static final Logger LOGGER = LogManager.getLogger(Runner.class);
+
+    public static void start (Vehicles vehicles) throws AgeException, StationException, MotoExceptions, TruckExceptions {
         Stantions departureStantion = new Stantions("");
         try {
-            departureStantion.setName("Orsha");
+            LOGGER.info(departureStantion.setName("Orsha"));
         } catch (StationException ex){
-            ex.printStackTrace();
+            LOGGER.error(ex.getMessage(), ex);
             departureStantion.setName("Minsk");
         }
         Stantions destinationStation = new Stantions("Brest");
-        Passengers passengers = new Passengers(10, 1);
+        Passengers passengers = new Passengers(10, 3);
         Driver driver = new Driver("woman", "Kate", 17);
         try {
             driver.setAge(17);
         } catch (AgeException e){
+            e.printStackTrace();
+            LOGGER.error("Error Age");
             driver.setAge(18);
         }
 
 
         vehicles.move(departureStantion, destinationStation, passengers, driver);
     }
-    public static void start (IMoveGoods IMoveGoods){
-        IMoveGoods.moveGoods();
+    public static void start (IMoveGoods iMoveGoods){
+        iMoveGoods.moveGoods();
 
     }
 }

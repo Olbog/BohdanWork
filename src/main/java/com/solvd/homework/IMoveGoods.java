@@ -1,4 +1,4 @@
-package homeWork;
+package com.solvd.homework;
 
 public interface IMoveGoods {
 
