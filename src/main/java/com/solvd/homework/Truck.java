@@ -1,4 +1,4 @@
-package homework;
+package com.solvd.homework;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -45,7 +45,7 @@ class Truck extends Car implements IMoveGoods, IDoors, IAirConditioning {
                 Map<Truck, Integer> mapTruck = new HashMap<>();
                 mapTruck.put(new Truck("red", "4.5 m.", 18, 3), 9);
                 mapTruck.put(new Truck("black", "5.2 m.", 24, 4), 11);
-                mapTruck.put(new Truck("orange", "4,9 m.", 24, 5), 7);
+                mapTruck.put(new Truck("orange", "4,9 m.", 24, 5), 7  );
 
                 LOGGER.info(mapTruck);
             }

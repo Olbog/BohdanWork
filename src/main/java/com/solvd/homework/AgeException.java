@@ -1,4 +1,4 @@
-package homework;
+package com.solvd.homework;
 
 public class AgeException extends Exception{
 

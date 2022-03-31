@@ -1,4 +1,4 @@
-package homework;
+package com.solvd.homework;
 
 public class MotoExceptions extends Exception{
 

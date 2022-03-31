@@ -1,4 +1,4 @@
-package homework;
+package com.solvd.homework;
 
 public class Driver {
     private String gender;

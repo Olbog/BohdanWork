@@ -1,4 +1,4 @@
-package homework;
+package com.solvd.homework;
 
 import java.util.Objects;
 import org.apache.logging.log4j.Logger;

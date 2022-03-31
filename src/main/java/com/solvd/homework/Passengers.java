@@ -1,10 +1,9 @@
-package homework;
+package com.solvd.homework;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-import java.util.ArrayList;
+
 import java.util.LinkedList;
-import java.util.List;
 
 class Passengers extends Runner {
     private int maxWeight; // maximum weight of passengers in tons
