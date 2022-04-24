@@ -1,5 +1,6 @@
 package com.solvd.homework;
 
+import com.solvd.homework.FuncInterface.DescriptionColor;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -37,9 +38,21 @@ class Sedan extends Car implements IMoveGoods, IDoors, IAirConditioning, IExtrem
         map.put(new Sedan("red", "2,1 m.", 4, 5), 3);
         map.put(new Sedan("green", "2 m.", 4, 2), 5);
         map.put(new Sedan("blue", "1,9 m.", 4, 4), 1);
-
         LOGGER.info(map);
         }
+
+    static void lambdaDescription(){
+        Sedan sedMers = new Sedan("green", "2 m.", 4, 4);
+        Sedan sedVolvo = new Sedan("red", "1.85 m.", 4, 4);
+        DescriptionColor carDesc = (x, y) -> {
+        String green = x;
+        String blue = y;
+        return " form " + x + " to " + y;
+        };
+        LOGGER.info(carDesc.descriptionValue(sedMers.getColor(), sedMers.getLenght()));
+        LOGGER.info(carDesc.descriptionValue(sedVolvo.getColor(), sedVolvo.getLenght()));
+
+    }
 
     @Override
     public void gas(){

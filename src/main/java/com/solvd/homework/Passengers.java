@@ -27,10 +27,8 @@ class Passengers extends Runner {
         parts.add(part1);
         parts.add(part2);
         parts.add(part3);
+        parts.stream().forEach(LOGGER::info);
 
-        LOGGER.info(parts.get(0));
-        LOGGER.info(parts.get(1));
-        LOGGER.info(parts.get(2));
     }
 
 

@@ -1,5 +1,8 @@
 package com.solvd.homework;
 
+import com.solvd.homework.FuncInterface.DescriptionColor;
+import com.solvd.homework.FuncInterface.DescriptionColorLength;
+import com.solvd.homework.FuncInterface.DescriptionMaxCount;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -45,16 +48,33 @@ public class Moto extends Vehicles implements IRidingOnWheel, IExtremeDriving{
         motos.add(moto2);
         motos.add(moto3);
         motos.add(moto4);
+        motos.stream().forEach(LOGGER::info);
 
-        LOGGER.info(motos);
-
-        //Moto moto1FromCollection = motos.get(0);
-        //Moto moto2FromCollection = motos.get(1);
-        //Moto moto3FromCollection = motos.get(2);
-        //LOGGER.info(moto1FromCollection);
-        //LOGGER.info(moto2FromCollection);
-        //LOGGER.info(moto3FromCollection);
     }
+    static void lambdaMaxCount(){
+        Moto sedMers = new Moto("yellow", "1.2 m.", 2, 1);
+        Moto sedNissan = new Moto("black", "1.5 m.", 2, 2);
+        DescriptionMaxCount motoDesc = (x, y) -> {
+            if(y > x)
+                return Integer.parseInt("Nissan has more places");
+            else
+                return Integer.parseInt("Mers has more places");
+        };
+        LOGGER.info(motoDesc.desMaxCount(sedMers.getMaxCount(), sedNissan.getMaxCount()));
+    }
+
+    static void lambdaMaxColorLength(){
+        Moto sedJawa = new Moto("pink", "1.3 m.", 2, 1);
+        Moto sedNissan = new Moto("black", "1.4 m.", 2, 2);
+        DescriptionColorLength descriptionColorLength = (x, y) -> {
+            if(x.length() > y.length())
+                return "pink won";
+            else
+                return "black won";
+        };
+        LOGGER.info(descriptionColorLength.descLength(sedJawa.getColor(), sedNissan.getColor()));
+    }
+
     @Override
     public void gas(){
         System.out.println("Moto started!");

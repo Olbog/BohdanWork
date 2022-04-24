@@ -1,8 +1,15 @@
 package com.solvd.homework;
 
+import com.solvd.homework.Enums.Menu;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
+import static com.solvd.homework.Moto.lambdaMaxColorLength;
+import static com.solvd.homework.Moto.lambdaMaxCount;
+import static com.solvd.homework.Passengers.partsForPassengers;
+import static com.solvd.homework.Sedan.lambdaDescription;
+import static com.solvd.homework.Truck.lambdaLeght;
+import static com.solvd.homework.Truck.lambdaWheels;
 
 public class Runner {
     public static void main(String[] args) throws AgeException, StationException, MotoExceptions, TruckExceptions {
@@ -16,9 +23,20 @@ public class Runner {
         start(moto);
         start(sedan);
         start(track);
+        WeatherInfo.weather();
         LOGGER.info(moto.hashCode());
         LOGGER.info(moto2.hashCode());
         LOGGER.info(moto.equals(moto2));
+        WeatherInfo.weather();
+        partsForPassengers();
+        lambdaDescription();
+        lambdaWheels();
+        lambdaMaxCount();
+        lambdaLeght();
+        lambdaMaxColorLength();
+
+
+
 
         IMoveGoods truck = new Truck("blue", "6 m.",18, 2 );
         IMoveGoods sedan2 = new Sedan("Green","2.3 m.", 4, 5 );
@@ -51,9 +69,15 @@ public class Runner {
 
 
         vehicles.move(departureStantion, destinationStation, passengers, driver);
+
     }
     public static void start (IMoveGoods iMoveGoods){
         iMoveGoods.moveGoods();
-
     }
+    public static void enums(){
+        for (Menu auto: Menu.values()){
+            LOGGER.info(auto.getAutoModel().getValue() + " " + auto.getTruckModel());
+        }
+    }
+
 }
