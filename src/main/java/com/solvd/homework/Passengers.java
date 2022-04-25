@@ -6,16 +6,15 @@ import org.apache.logging.log4j.LogManager;
 import java.util.LinkedList;
 
 class Passengers extends Runner {
+    private static final Logger LOGGER = LogManager.getLogger(Passengers.class);
+
     private int maxWeight; // maximum weight of passengers in tons
     private int count; // number of actual passengers
-
-
 
     public Passengers(int maxWeight, int count) {
         this.maxWeight = maxWeight;
         this.count = count;
     }
-    private static final Logger LOGGER = LogManager.getLogger(Passengers.class);
 
     public static void partsForPassengers(){
         LinkedList<Passengers> parts = new LinkedList<>();
@@ -30,8 +29,6 @@ class Passengers extends Runner {
         parts.stream().forEach(LOGGER::info);
 
     }
-
-
 
     public void setMaxWeight(int maxWeight) {
         this.maxWeight = maxWeight;

@@ -7,10 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Maps <T> {
-    static String map;
-
     private static final Logger LOGGER = LogManager.getLogger(Maps.class);
 
+    static String map;
     static {
         map = "The world's map";
     }

@@ -5,7 +5,6 @@ import com.solvd.homework.FuncInterface.DescriptionColorLength;
 import com.solvd.homework.FuncInterface.DescriptionMaxCount;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-
 import java.util.*;
 
 public class Moto extends Vehicles implements IRidingOnWheel, IExtremeDriving{

@@ -31,7 +31,6 @@ class Sedan extends Car implements IMoveGoods, IDoors, IAirConditioning, IExtrem
             turnConditioningOn();
             extreme();
             brake();
-
         }
 
         Map<Sedan, Integer> map = new HashMap<>();

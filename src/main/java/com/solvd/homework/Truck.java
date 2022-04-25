@@ -4,7 +4,6 @@ import com.solvd.homework.FuncInterface.DescriptionLength;
 import com.solvd.homework.FuncInterface.DescriptionWheels;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.HashMap;
 import java.util.Map;
 

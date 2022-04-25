@@ -41,5 +41,4 @@ public final class Stantions {
         LOGGER.info(stations.get(2));
 
     }
-
 }
