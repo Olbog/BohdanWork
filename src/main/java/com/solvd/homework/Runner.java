@@ -58,7 +58,7 @@ public class Runner {
         }
         Stantions destinationStation = new Stantions("Brest");
         Passengers passengers = new Passengers(10, 3);
-        Driver driver = new Driver("woman", "Kate", 17);
+        Driver driver = new Driver("woman", "Kate", 17, "positive");
         try {
             driver.setAge(17);
         } catch (AgeException e){
