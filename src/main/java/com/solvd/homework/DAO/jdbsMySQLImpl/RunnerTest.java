@@ -1,7 +1,6 @@
 package com.solvd.homework.DAO.jdbsMySQLImpl;
 
 import com.solvd.homework.Driver;
-
 import java.sql.*;
 import java.util.Properties;
 
