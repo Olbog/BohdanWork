@@ -1,7 +1,7 @@
 package com.solvd.homework;
 
-import com.solvd.homework.FuncInterface.DescriptionLength;
-import com.solvd.homework.FuncInterface.DescriptionWheels;
+import com.solvd.homework.funcInterface.DescriptionLength;
+import com.solvd.homework.funcInterface.DescriptionWheels;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.HashMap;

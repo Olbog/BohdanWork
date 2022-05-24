@@ -1,8 +1,7 @@
 package com.solvd.homework;
 
-import com.solvd.homework.FuncInterface.DescriptionColor;
-import com.solvd.homework.FuncInterface.DescriptionColorLength;
-import com.solvd.homework.FuncInterface.DescriptionMaxCount;
+import com.solvd.homework.funcInterface.DescriptionColorLength;
+import com.solvd.homework.funcInterface.DescriptionMaxCount;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import java.util.*;
