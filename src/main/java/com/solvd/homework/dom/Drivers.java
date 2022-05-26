@@ -13,12 +13,12 @@ import java.util.List;
 public class Drivers {
     private List<Driver> driver;
 
-    public List<Driver> getDrivers() {
+    public List<Driver> getDriver() {
         return driver;
     }
-    @XmlElement
-    public void setDrivers(List<Driver> drivers) {
-        this.driver = drivers;
+
+    public void setDriver(List<Driver> driver) {
+        this.driver = driver;
     }
 
     @Override

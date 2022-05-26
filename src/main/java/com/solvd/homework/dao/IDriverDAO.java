@@ -1,5 +1,7 @@
 package com.solvd.homework.dao;
 
-public interface IDriverDAO extends IBaseDAO {
+import java.sql.SQLException;
 
+public interface IDriverDAO extends IBaseDAO {
+    void getTable () throws SQLException;
 }

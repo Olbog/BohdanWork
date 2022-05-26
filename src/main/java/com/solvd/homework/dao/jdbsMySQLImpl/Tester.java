@@ -1,22 +1,22 @@
 package com.solvd.homework.dao.jdbsMySQLImpl;
 
 import com.solvd.homework.connectionPool.HelpConnectionPool;
-import com.solvd.homework.dao.IDriverDAO;
-import com.solvd.homework.dao.jdbsMySQLImpl.classes.ForDriverDAO;
+import com.solvd.homework.dao.IBaseDAO;
+import com.solvd.homework.dao.jdbsMySQLImpl.classes.ForRunnerTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-public class DriverDAO extends HelpConnectionPool implements IDriverDAO {
-    public static final Logger LOGGER = LogManager.getLogger(DriverDAO.class);
-    private ForDriverDAO forDriverDAO = new ForDriverDAO();
+public class Tester extends HelpConnectionPool implements IBaseDAO {
+
+    public static final Logger LOGGER = LogManager.getLogger(Tester.class);
+    private ForRunnerTest r = new ForRunnerTest();
     static Connection connection = null;
     static PreparedStatement preparedStatement = null;
     static ResultSet resultSet = null;
+
+
 
     @Override
     public Object getEntityById(long id) throws SQLException {
@@ -27,12 +27,12 @@ public class DriverDAO extends HelpConnectionPool implements IDriverDAO {
             preparedStatement.execute();
             resultSet = preparedStatement.getResultSet();
             while (resultSet.next()) {
-                forDriverDAO.setId(resultSet.getInt("id"));
-                forDriverDAO.setAge(resultSet.getInt("age"));
-                forDriverDAO.setName(resultSet.getString("name"));
-                forDriverDAO.setEmail(resultSet.getString("e-mail"));
+                r.setId(resultSet.getInt("id"));
+                r.setAge(resultSet.getInt("age"));
+                r.setName(resultSet.getString("name"));
+                r.setEmail(resultSet.getString("e-mail"));
                 LOGGER.info("All right with GET_Entity_By_Id for driver");
-                LOGGER.info(forDriverDAO);
+                LOGGER.info(r);
             }
         } catch (SQLException e) {
             LOGGER.info(e);
@@ -45,11 +45,11 @@ public class DriverDAO extends HelpConnectionPool implements IDriverDAO {
                 LOGGER.info(e);
             }
         }
-        return forDriverDAO;
+        return r;
     }
 
     @Override
-    public void saveEntity(Object entity) {
+    public void saveEntity(Object entity) throws SQLException {
         try {
             connection = getConnectionPool().makeConnection();
             preparedStatement = connection.prepareStatement("INSERT into drivers (name, `e-mail`, age ) " +
@@ -61,7 +61,7 @@ public class DriverDAO extends HelpConnectionPool implements IDriverDAO {
             preparedStatement.executeUpdate();
         } catch (SQLException e){
             LOGGER.info(e);
-        } finally {
+            } finally {
             getConnectionPool().returnConnection(connection);
             try {
                 if (preparedStatement != null) preparedStatement.close();
@@ -69,11 +69,11 @@ public class DriverDAO extends HelpConnectionPool implements IDriverDAO {
                 LOGGER.info(e);
             }
         }
-
     }
 
+
     @Override
-    public void updateEntity(Object entity) {
+    public void updateEntity(Object entity) throws SQLException {
         try {
             connection = getConnectionPool().makeConnection();
             preparedStatement = connection.prepareStatement("UPDATE drivers set name = ?, `e-mail` = ?, age = ? WHERE id = ?");
@@ -97,7 +97,7 @@ public class DriverDAO extends HelpConnectionPool implements IDriverDAO {
     }
 
     @Override
-    public void removeEntity(long id) {
+    public void removeEntity(long id) throws SQLException {
         try {
             connection = getConnectionPool().makeConnection();
             preparedStatement = connection.prepareStatement("DELETE FROM drivers WHERE id = ? LIMIT 1");
@@ -115,32 +115,6 @@ public class DriverDAO extends HelpConnectionPool implements IDriverDAO {
             }
         }
     }
-
-    @Override
-    public void getTable() throws SQLException {
-        try {
-            connection = getConnectionPool().makeConnection();
-            preparedStatement = connection.prepareStatement("SELECT * from drivers");
-            preparedStatement.execute();
-            resultSet = preparedStatement.getResultSet();
-            while (resultSet.next()) {
-                forDriverDAO.setId(resultSet.getInt("id"));
-                forDriverDAO.setAge(resultSet.getInt("age"));
-                forDriverDAO.setName(resultSet.getString("name"));
-                forDriverDAO.setEmail(resultSet.getString("e-mail"));
-                LOGGER.info("All right with GET_Table for driver");
-                LOGGER.info(forDriverDAO);
-            }
-        } catch (SQLException e) {
-            LOGGER.info(e);
-        } finally {
-            getConnectionPool().returnConnection(connection);
-            try {
-                if (preparedStatement != null) preparedStatement.close();
-                if (resultSet != null) resultSet.close();
-            } catch (SQLException e){
-                LOGGER.info(e);
-            }
-        }
-    }
 }
+
+

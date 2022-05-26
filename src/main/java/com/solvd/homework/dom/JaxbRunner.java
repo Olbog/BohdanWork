@@ -44,6 +44,6 @@ public class JaxbRunner {
     public static Drivers unmarshal2() throws JAXBException, IOException {
         JAXBContext context = JAXBContext.newInstance(Drivers.class);
         return (Drivers) context.createUnmarshaller()
-                .unmarshal(new FileReader(System.getProperty("user.dir") + "/src/main/resources/driver1.xml"));
+                .unmarshal(new FileReader(System.getProperty("user.dir") + "/src/main/resources/dom.xml"));
     }
 }

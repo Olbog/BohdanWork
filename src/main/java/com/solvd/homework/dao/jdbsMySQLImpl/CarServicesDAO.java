@@ -1,8 +1,10 @@
 package com.solvd.homework.dao.jdbsMySQLImpl;
 
 import com.solvd.homework.Driver;
-import com.solvd.homework.connectionPool.BasicConnectionPool;
+import com.solvd.homework.connectionPool.HelpConnectionPool;
 import com.solvd.homework.dao.ICarServicesDAO;
+import com.solvd.homework.dao.jdbsMySQLImpl.classes.ForAlcoholTestsDAO;
+import com.solvd.homework.dao.jdbsMySQLImpl.classes.ForCarServicesDAO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,86 +14,129 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class CarServicesDAO extends BasicConnectionPool implements ICarServicesDAO {
-    public CarServicesDAO(String url, String user, String password, List<Connection> pool) {
-        super(url, user, password, pool);
-    }
+public class CarServicesDAO extends HelpConnectionPool implements ICarServicesDAO {
 
-    public static final Logger LOGGER = LogManager.getLogger(AlcoholTestsDAO.class);
-    Driver driver = new Driver("man", "Nico", 23, "positive");
-    Connection connection = null;
-    PreparedStatement preparedStatement = null;
-    ResultSet resultSet = null;
-
+    public static final Logger LOGGER = LogManager.getLogger(CarServicesDAO.class);
+    private ForCarServicesDAO forCarServicesDAO = new ForCarServicesDAO();
+    static Connection connection = null;
+    static PreparedStatement preparedStatement = null;
+    static ResultSet resultSet = null;
 
     @Override
     public Object getEntityById(long id) throws SQLException {
+        try{
+        connection = getConnectionPool().makeConnection();
+        preparedStatement = connection.prepareStatement("SELECT * from car_services WHERE id = ?");
+        preparedStatement.setLong(1, id);
+        preparedStatement.execute();
+        resultSet = preparedStatement.getResultSet();
+        while (resultSet.next()) {
+            forCarServicesDAO.setId(resultSet.getInt("id"));
+            forCarServicesDAO.setStatus(resultSet.getString("status"));
+            LOGGER.info("All right with GET_Entity_By_Id for car_services");
+            LOGGER.info(forCarServicesDAO);
+        }
+    } catch(SQLException e){
+        LOGGER.info(e);
+    } finally{
+        getConnectionPool().returnConnection(connection);
         try {
-            connection = getConnection();
-            preparedStatement = connection.prepareStatement("Select * from mydb.car_services where id = ?");
-            preparedStatement.setInt(1,4 );
-            preparedStatement.execute();
-            resultSet = preparedStatement.getResultSet();
-            while (resultSet.next()) {
-                driver.setAlcoTests(resultSet.getString("results"));
-            }
+            if (preparedStatement != null) preparedStatement.close();
+            if (resultSet != null) resultSet.close();
         } catch (SQLException e) {
             LOGGER.info(e);
-        } finally {
-            connection.close();
-            resultSet.close();
-            preparedStatement.close();
         }
-        return driver;
-    }
+    } return forCarServicesDAO;
+}
 
     @Override
     public void saveEntity(Object entity) throws SQLException {
+        try {
+            connection = getConnectionPool().makeConnection();
+            preparedStatement = connection.prepareStatement("INSERT into car_services ( status) values (?) ");
+            preparedStatement.setString(1,"Done!");
+            LOGGER.info("All right with SAVE_Entity for car_services");
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            LOGGER.info(e);
+        } finally {
+            getConnectionPool().returnConnection(connection);
             try {
-                connection = getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement("Insert into mydb.car_services ( status) values (?) ");
-                preparedStatement.setString(1,"Done!");
-                preparedStatement.executeUpdate();
+                if (preparedStatement != null) preparedStatement.close();
             } catch (SQLException e) {
-                e.printStackTrace();
-            }finally {
-                connection.close();
-                resultSet.close();
-                preparedStatement.close();
+                LOGGER.info(e);
             }
         }
 
+    }
 
     @Override
     public void updateEntity(Object entity) throws SQLException {
         try {
-            connection = getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("update mydb.car_services set status = ? where id = ? ");
+            connection = getConnectionPool().makeConnection();
+            preparedStatement = connection.prepareStatement("UPDATE car_services set status = ? where id = ? ");
             preparedStatement.setString(1, "in progress");
             preparedStatement.setInt(2, 6);
             preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            connection.close();
-            resultSet.close();
-            preparedStatement.close();
+            LOGGER.info("All right with UPDATE_Entity for car_services");
+        } catch (SQLException e){
+            LOGGER.info(e);
+        } finally {
+            getConnectionPool().returnConnection(connection);
+            try {
+                if (preparedStatement != null) preparedStatement.close();
+            } catch (SQLException e){
+                LOGGER.info(e);
+            }
         }
+
     }
 
     @Override
     public void removeEntity(long id) throws SQLException {
         try {
-            connection = getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM mydb.car_services WHERE ID = ? LIMIT 1");
-            preparedStatement.setInt(1, 5);
-            preparedStatement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            connection.close();
-            resultSet.close();
-            preparedStatement.close();
+            connection = getConnectionPool().makeConnection();
+            preparedStatement = connection.prepareStatement("DELETE FROM car_services WHERE id = ? LIMIT 1");
+            preparedStatement.setInt(1, 3);
+            preparedStatement.executeUpdate();
+            LOGGER.info("All right with REMOVE_Entity for car_services");
+        } catch (SQLException e){
+            LOGGER.info(e);
+        } finally {
+            getConnectionPool().returnConnection(connection);
+            try {
+                if (preparedStatement != null) preparedStatement.close();
+            } catch (SQLException e){
+                LOGGER.info(e);
+            }
         }
+    }
+
+
+    @Override
+    public void getTable() throws SQLException {
+        try{
+            connection = getConnectionPool().makeConnection();
+            preparedStatement = connection.prepareStatement("SELECT * from car_services ");
+            preparedStatement.execute();
+            resultSet = preparedStatement.getResultSet();
+            while (resultSet.next()) {
+                forCarServicesDAO.setId(resultSet.getInt("id"));
+                forCarServicesDAO.setStatus(resultSet.getString("status"));
+                LOGGER.info("All right with GET_Table for car_services");
+                LOGGER.info(forCarServicesDAO);
+            }
+        } catch(SQLException e){
+            LOGGER.info(e);
+        } finally{
+            getConnectionPool().returnConnection(connection);
+            try {
+                if (preparedStatement != null) preparedStatement.close();
+                if (resultSet != null) resultSet.close();
+            } catch (SQLException e) {
+                LOGGER.info(e);
+            }
+        }
+
     }
 }

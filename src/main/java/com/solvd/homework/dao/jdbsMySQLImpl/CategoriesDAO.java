@@ -1,8 +1,11 @@
 package com.solvd.homework.dao.jdbsMySQLImpl;
 
 import com.solvd.homework.Driver;
-import com.solvd.homework.connectionPool.BasicConnectionPool;
+
+import com.solvd.homework.connectionPool.HelpConnectionPool;
 import com.solvd.homework.dao.ICategoriesDAO;
+import com.solvd.homework.dao.jdbsMySQLImpl.classes.ForAlcoholTestsDAO;
+import com.solvd.homework.dao.jdbsMySQLImpl.classes.ForCategoriesDAO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,77 +15,133 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class CategoriesDAO extends BasicConnectionPool implements ICategoriesDAO {
+public class CategoriesDAO extends HelpConnectionPool implements ICategoriesDAO {
 
-    public CategoriesDAO(String url, String user, String password, List<Connection> pool) {
-        super(url, user, password, pool);
-    }
+    public static final Logger LOGGER = LogManager.getLogger(CategoriesDAO.class);
+    private ForCategoriesDAO forCategoriesDAO = new ForCategoriesDAO();
+    static Connection connection = null;
+    static PreparedStatement preparedStatement = null;
+    static ResultSet resultSet = null;
 
-    public static final Logger LOGGER = LogManager.getLogger(AlcoholTestsDAO.class);
-    Driver driver = new Driver("man", "Nico", 23, "positive");
-    Connection connection = null;
-    PreparedStatement preparedStatement = null;
-    ResultSet resultSet = null;
 
     @Override
     public Object getEntityById(long id) throws SQLException {
         try {
-            connection = getConnection();
-            preparedStatement = connection.prepareStatement("Select * from mydb.categories where id = ?");
-            preparedStatement.setInt(1,3 );
+            connection = getConnectionPool().makeConnection();
+            preparedStatement = connection.prepareStatement("SELECT * from categories WHERE id = ?");
+            preparedStatement.setLong(1, id);
             preparedStatement.execute();
             resultSet = preparedStatement.getResultSet();
             while (resultSet.next()) {
-                driver.setAlcoTests(resultSet.getString("results"));
-                System.out.println(resultSet.getString("results"));
+                forCategoriesDAO.setId(resultSet.getInt("id"));
+                forCategoriesDAO.setCategory(resultSet.getString("category"));
+                forCategoriesDAO.setLicense_id(resultSet.getInt("license_id"));
+                LOGGER.info("All right with GET_Entity_By_Id for categories");
+                LOGGER.info(forCategoriesDAO);
             }
         } catch (SQLException e) {
             LOGGER.info(e);
         } finally {
-            connection.close();
-            resultSet.close();
-            preparedStatement.close();
-        }
-        return driver;
+            getConnectionPool().returnConnection(connection);
+            try {
+                if (preparedStatement != null) preparedStatement.close();
+                if (resultSet != null) resultSet.close();
+            } catch (SQLException e){
+                LOGGER.info(e);
+            }
+        } return forCategoriesDAO;
     }
 
     @Override
-    public void saveEntity(Object entity) {
+    public void saveEntity(Object entity) throws SQLException {
         try {
-            connection = getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("Insert into mydb.categories ( category, license_id) values (?,?) ");
-            preparedStatement.setString(1,"D");
+            connection = getConnectionPool().makeConnection();
+            preparedStatement = connection.prepareStatement("INSERT into categories ( category, license_id) values (?,?) ");
+           preparedStatement.setString(1,"D");
             preparedStatement.setInt(1,4);
+            LOGGER.info("All right with SAVE_Entity for categories");
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.info(e);
+        } finally {
+            getConnectionPool().returnConnection(connection);
+            try {
+                if (preparedStatement != null) preparedStatement.close();
+            } catch (SQLException e) {
+                LOGGER.info(e);
+            }
         }
     }
 
-
     @Override
-    public void updateEntity(Object entity) {
+    public void updateEntity(Object entity) throws SQLException {
         try {
-            connection = getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("update mydb.categories set category = ?, license_id = ? where id = ? ");
+            connection = getConnectionPool().makeConnection();
+            preparedStatement = connection.prepareStatement("UPDATE categories set category = ?, license_id = ? where id = ? ");
             preparedStatement.setString(1,"C");
             preparedStatement.setInt(2,5);
             preparedStatement.setInt(3, 3);
             preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.info("All right with UPDATE_Entity for categories");
+        } catch (SQLException e){
+            LOGGER.info(e);
+        } finally {
+            getConnectionPool().returnConnection(connection);
+            try {
+                if (preparedStatement != null) preparedStatement.close();
+            } catch (SQLException e){
+                LOGGER.info(e);
+            }
         }
+
     }
 
     @Override
-    public void removeEntity(long id) {
+    public void removeEntity(long id) throws SQLException {
         try {
-            connection = getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM mydb.categories WHERE ID = ? LIMIT 1");
-            preparedStatement.setInt(1, 4);
+            connection = getConnectionPool().makeConnection();
+            preparedStatement = connection.prepareStatement("DELETE FROM categories WHERE id = ? LIMIT 1");
+            preparedStatement.setInt(1, 3);
+            preparedStatement.executeUpdate();
+            LOGGER.info("All right with REMOVE_Entity for categories");
+        } catch (SQLException e){
+            LOGGER.info(e);
+        } finally {
+            getConnectionPool().returnConnection(connection);
+            try {
+                if (preparedStatement != null) preparedStatement.close();
+            } catch (SQLException e){
+                LOGGER.info(e);
+            }
+        }
+
+    }
+
+    @Override
+    public void getTable() throws SQLException {
+        try {
+            connection = getConnectionPool().makeConnection();
+            preparedStatement = connection.prepareStatement("SELECT * from categories ");
             preparedStatement.execute();
+            resultSet = preparedStatement.getResultSet();
+            while (resultSet.next()) {
+                forCategoriesDAO.setId(resultSet.getInt("id"));
+                forCategoriesDAO.setCategory(resultSet.getString("category"));
+                forCategoriesDAO.setLicense_id(resultSet.getInt("license_id"));
+                LOGGER.info("All right with GET_Table for categories");
+                LOGGER.info(forCategoriesDAO);
+            }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.info(e);
+        } finally {
+            getConnectionPool().returnConnection(connection);
+            try {
+                if (preparedStatement != null) preparedStatement.close();
+                if (resultSet != null) resultSet.close();
+            } catch (SQLException e){
+                LOGGER.info(e);
+            }
         }
     }
 }
+
