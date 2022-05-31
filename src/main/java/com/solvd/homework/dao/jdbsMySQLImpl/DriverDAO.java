@@ -19,7 +19,7 @@ public class DriverDAO extends HelpConnectionPool implements IDriverDAO {
     static ResultSet resultSet = null;
 
     @Override
-    public Object getEntityById(long id) throws SQLException {
+    public ForDriverDAO getEntityById(long id) throws SQLException {
         try {
             connection = getConnectionPool().makeConnection();
             preparedStatement = connection.prepareStatement("SELECT * from drivers WHERE id = ? ");
@@ -49,7 +49,7 @@ public class DriverDAO extends HelpConnectionPool implements IDriverDAO {
     }
 
     @Override
-    public void saveEntity(Object entity) {
+    public void saveEntity(ForDriverDAO entity) throws SQLException {
         try {
             connection = getConnectionPool().makeConnection();
             preparedStatement = connection.prepareStatement("INSERT into drivers (name, `e-mail`, age ) " +
@@ -69,11 +69,10 @@ public class DriverDAO extends HelpConnectionPool implements IDriverDAO {
                 LOGGER.info(e);
             }
         }
-
     }
 
     @Override
-    public void updateEntity(Object entity) {
+    public void updateEntity(ForDriverDAO entity) throws SQLException {
         try {
             connection = getConnectionPool().makeConnection();
             preparedStatement = connection.prepareStatement("UPDATE drivers set name = ?, `e-mail` = ?, age = ? WHERE id = ?");
@@ -93,8 +92,55 @@ public class DriverDAO extends HelpConnectionPool implements IDriverDAO {
                 LOGGER.info(e);
             }
         }
-
     }
+
+//    @Override
+//    public void saveEntity(Object entity) {
+//        try {
+//            connection = getConnectionPool().makeConnection();
+//            preparedStatement = connection.prepareStatement("INSERT into drivers (name, `e-mail`, age ) " +
+//                    "values ( ?,?,?)");
+//            preparedStatement.setString(1, "Olya");
+//            preparedStatement.setString(2, "Olya@mail.com");
+//            preparedStatement.setInt(3, 32);
+//            LOGGER.info("All right with SAVE_Entity for driver");
+//            preparedStatement.executeUpdate();
+//        } catch (SQLException e){
+//            LOGGER.info(e);
+//        } finally {
+//            getConnectionPool().returnConnection(connection);
+//            try {
+//                if (preparedStatement != null) preparedStatement.close();
+//            } catch (SQLException e){
+//                LOGGER.info(e);
+//            }
+//        }
+//
+//    }
+
+//    @Override
+//    public void updateEntity(Object entity) {
+//        try {
+//            connection = getConnectionPool().makeConnection();
+//            preparedStatement = connection.prepareStatement("UPDATE drivers set name = ?, `e-mail` = ?, age = ? WHERE id = ?");
+//            preparedStatement.setString(1, "Ilya");
+//            preparedStatement.setString(2, "Ilya@mail.com");
+//            preparedStatement.setInt(3, 19);
+//            preparedStatement.setInt(4, 3);
+//            preparedStatement.executeUpdate();
+//            LOGGER.info("All right with UPDATE_Entity for driver");
+//        } catch (SQLException e){
+//            LOGGER.info(e);
+//        } finally {
+//            getConnectionPool().returnConnection(connection);
+//            try {
+//                if (preparedStatement != null) preparedStatement.close();
+//            } catch (SQLException e){
+//                LOGGER.info(e);
+//            }
+//        }
+//
+//    }
 
     @Override
     public void removeEntity(long id) {
