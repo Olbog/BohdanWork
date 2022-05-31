@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+    <driver>
+        <name>Oleg</name>
+        <age>25</age>
+        <city>Minsk</city>
+        <license>
+            <date>2022</date>
+        </license>
+
+    </driver>
+    <driver>
+        <name>Niko</name>
+        <age>33</age>
+        <city>Brest</city>
+        <license>
+            <date>2021</date>
+        </license>
+    </driver>
+    <driver>
+        <name>Kate</name>
+        <age>31</age>
+        <city>Vitebsk</city>
+        <license>
+            <date>2019</date>
+        </license>
+    </driver>
+</drivers>
+

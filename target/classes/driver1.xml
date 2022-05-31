@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<driver>
+    <id>1</id>
+    <name>Artic</name>
+    <age>41</age>
+    <city>Minsk</city>
+    <license>
+        <date>2027</date>
+    </license>
+</driver>

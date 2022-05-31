@@ -1,0 +1,4 @@
+[INFO ] 2022-05-26 14:55:44.527 [main] ConnectionAllPool - the Connection Pool exists
+[INFO ] 2022-05-26 14:55:45.084 [main] Tester - All right with GET_Entity_By_Id for driver
+[INFO ] 2022-05-26 14:55:45.091 [main] Tester - ForRunnerTest{id=3, age=26, name='Ilya', email='Ilya@mail.com'}
+[INFO ] 2022-05-26 14:55:45.091 [main] ConnectionAllPool - The connection in the pool again

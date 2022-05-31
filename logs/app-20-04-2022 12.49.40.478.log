@@ -1,0 +1,53 @@
+[INFO ] 2022-04-20 12:49:40.613 [main] Maps - The world's map is loading...
+[ERROR] 2022-04-20 12:49:40.618 [main] Runner - This station is close
+com.solvd.homework.StationException: This station is close
+	at com.solvd.homework.Stantions.setName(Stantions.java:26) ~[classes/:?]
+	at com.solvd.homework.Runner.start(Runner.java:34) ~[classes/:?]
+	at com.solvd.homework.Runner.main(Runner.java:15) ~[classes/:?]
+[ERROR] 2022-04-20 12:49:40.640 [main] Runner - Error Age
+[INFO ] 2022-04-20 12:49:40.648 [main] Moto - Your moto: 
+Moto{color='red', lenght='1 m.', wheels=2, maxCount=1}
+[INFO ] 2022-04-20 12:49:40.654 [main] Moto - Info about drivers: 
+Driver{gender='woman', name='Kate', age=18}
+[INFO ] 2022-04-20 12:49:40.657 [main] Moto - Passengers{maxWeight=10, count=3}
+[ERROR] 2022-04-20 12:49:40.658 [main] Moto - Unknown error in moto class
+[INFO ] 2022-04-20 12:49:40.659 [main] Moto - [Moto{color='red', lenght='1.5 m.', wheels=2, maxCount=3}, Moto{color='green', lenght='1.3 m.', wheels=2, maxCount=2}, Moto{color='braun', lenght='1.2 m.', wheels=2, maxCount=1}]
+[ERROR] 2022-04-20 12:49:40.660 [main] Runner - This station is close
+com.solvd.homework.StationException: This station is close
+	at com.solvd.homework.Stantions.setName(Stantions.java:26) ~[classes/:?]
+	at com.solvd.homework.Runner.start(Runner.java:34) ~[classes/:?]
+	at com.solvd.homework.Runner.main(Runner.java:16) ~[classes/:?]
+[ERROR] 2022-04-20 12:49:40.660 [main] Runner - Error Age
+[INFO ] 2022-04-20 12:49:40.661 [main] Sedan - Your auto: 
+Sedan{color='Green', lenght='2.3 m.', wheels=4, maxCount=5}
+[INFO ] 2022-04-20 12:49:40.661 [main] Sedan - Info about drivers: 
+Driver{gender='woman', name='Kate', age=18}
+[INFO ] 2022-04-20 12:49:40.661 [main] Sedan - Passengers{maxWeight=10, count=3}
+[INFO ] 2022-04-20 12:49:40.662 [main] Sedan - your auto will drive from Minsk to Brest
+[INFO ] 2022-04-20 12:49:40.662 [main] Vehicles - The start time of the trip is at 8 p.m. for all vehicles
+[INFO ] 2022-04-20 12:49:40.662 [main] Sedan - the move of the goods more then 2 tons is not provided
+[INFO ] 2022-04-20 12:49:40.662 [main] Sedan - You have 3 open doors in your sedan..
+[INFO ] 2022-04-20 12:49:40.663 [main] Sedan - Sedan started
+[INFO ] 2022-04-20 12:49:40.663 [main] Sedan - Conditioning is working
+[INFO ] 2022-04-20 12:49:40.663 [main] Sedan - You did the police u-turn
+[INFO ] 2022-04-20 12:49:40.663 [main] Vehicles - Auto is stopping
+[INFO ] 2022-04-20 12:49:40.663 [main] Sedan - {Sedan{color='red', lenght='2,1 m.', wheels=4, maxCount=5}=3, Sedan{color='green', lenght='2 m.', wheels=4, maxCount=2}=5, Sedan{color='blue', lenght='1,9 m.', wheels=4, maxCount=4}=1}
+[ERROR] 2022-04-20 12:49:40.664 [main] Runner - This station is close
+com.solvd.homework.StationException: This station is close
+	at com.solvd.homework.Stantions.setName(Stantions.java:26) ~[classes/:?]
+	at com.solvd.homework.Runner.start(Runner.java:34) ~[classes/:?]
+	at com.solvd.homework.Runner.main(Runner.java:17) ~[classes/:?]
+[ERROR] 2022-04-20 12:49:40.664 [main] Runner - Error Age
+[INFO ] 2022-04-20 12:49:40.665 [main] Maps - Your auto: 
+Truck{color='blue', lenght='6 m.', wheels=18, maxCount=4}
+[INFO ] 2022-04-20 12:49:40.665 [main] Maps - Passengers{maxWeight=10, count=3}
+[ERROR] 2022-04-20 12:49:40.665 [main] Maps -  Nobody is going, sorry! 
+com.solvd.homework.TruckExceptions: This truck can not take so many passengers 
+	at com.solvd.homework.Truck.move(Truck.java:33) ~[classes/:?]
+	at com.solvd.homework.Runner.start(Runner.java:51) ~[classes/:?]
+	at com.solvd.homework.Runner.main(Runner.java:17) ~[classes/:?]
+[ERROR] 2022-04-20 12:49:40.679 [main] WeatherInfo - java.io.FileNotFoundException: File 'C:\Oleg\Python\Git\123\src\main\resourses\file_1.txt' does not exist
+[INFO ] 2022-04-20 12:49:40.679 [main] Runner - 501606719
+[INFO ] 2022-04-20 12:49:40.679 [main] Runner - 501606719
+[INFO ] 2022-04-20 12:49:40.680 [main] Runner - true
+[INFO ] 2022-04-20 12:49:40.680 [main] Sedan - the move of the goods more then 2 tons is not provided

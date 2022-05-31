@@ -1,0 +1,45 @@
+[ERROR] 2022-03-30 14:47:12.361 [main] Runner - This station is close
+homework.StationException: This station is close
+	at homework.Stantions.setName(Stantions.java:29) ~[123/:?]
+	at homework.Runner.start(Runner.java:38) ~[123/:?]
+	at homework.Runner.main(Runner.java:18) ~[123/:?]
+[ERROR] 2022-03-30 14:47:12.384 [main] Runner - Error Age
+[INFO ] 2022-03-30 14:47:12.391 [main] Moto - Your moto: 
+Moto{color='red', lenght='1 m.', wheels=2, maxCount=1}
+[INFO ] 2022-03-30 14:47:12.397 [main] Moto - Info about drivers: 
+Driver{gender='woman', name='Kate', age=18}
+[INFO ] 2022-03-30 14:47:12.406 [main] Moto - Passengers{maxWeight=10, count=1}
+[INFO ] 2022-03-30 14:47:12.406 [main] Moto - your moto will drive from Minsk to Brest
+[INFO ] 2022-03-30 14:47:12.407 [main] Vehicles - The start time of the trip is at 8 p.m. for all vehicles
+[INFO ] 2022-03-30 14:47:12.407 [main] Vehicles - Auto is stopping
+[INFO ] 2022-03-30 14:47:12.407 [main] Moto - Moto{color='red', lenght='1.5 m.', wheels=2, maxCount=3}
+[INFO ] 2022-03-30 14:47:12.407 [main] Moto - Moto{color='green', lenght='1.3 m.', wheels=2, maxCount=2}
+[INFO ] 2022-03-30 14:47:12.408 [main] Moto - Moto{color='braun', lenght='1.2 m.', wheels=2, maxCount=1}
+[ERROR] 2022-03-30 14:47:12.408 [main] Runner - This station is close
+homework.StationException: This station is close
+	at homework.Stantions.setName(Stantions.java:29) ~[123/:?]
+	at homework.Runner.start(Runner.java:38) ~[123/:?]
+	at homework.Runner.main(Runner.java:19) ~[123/:?]
+[ERROR] 2022-03-30 14:47:12.408 [main] Runner - Error Age
+[INFO ] 2022-03-30 14:47:12.409 [main] Vehicles - The start time of the trip is at 8 p.m. for all vehicles
+[INFO ] 2022-03-30 14:47:12.410 [main] Vehicles - Auto is stopping
+[ERROR] 2022-03-30 14:47:12.410 [main] Runner - This station is close
+homework.StationException: This station is close
+	at homework.Stantions.setName(Stantions.java:29) ~[123/:?]
+	at homework.Runner.start(Runner.java:38) ~[123/:?]
+	at homework.Runner.main(Runner.java:20) ~[123/:?]
+[ERROR] 2022-03-30 14:47:12.410 [main] Runner - Error Age
+[INFO ] 2022-03-30 14:47:12.411 [main] Maps - Your auto: 
+Truck{color='blue', lenght='6 m.', wheels=18, maxCount=4}
+[INFO ] 2022-03-30 14:47:12.411 [main] Maps - Info about drivers: 
+Driver{gender='woman', name='Kate', age=18}
+[INFO ] 2022-03-30 14:47:12.411 [main] Maps - Passengers{maxWeight=10, count=1}
+[INFO ] 2022-03-30 14:47:12.411 [main] Maps - your track will drive from Minsk to Brest
+[INFO ] 2022-03-30 14:47:12.412 [main] Vehicles - The start time of the trip is at 8 p.m. for all vehicles
+[INFO ] 2022-03-30 14:47:12.412 [main] Maps - This type of transport can moves goods before 27 tons
+[INFO ] 2022-03-30 14:47:12.412 [main] Maps - You have only 2 open doors in your track..
+[INFO ] 2022-03-30 14:47:12.412 [main] Maps - Track started!
+[INFO ] 2022-03-30 14:47:12.412 [main] Vehicles - Auto is stopping
+[INFO ] 2022-03-30 14:47:12.412 [main] Runner - 501606719
+[INFO ] 2022-03-30 14:47:12.413 [main] Runner - 501606719
+[INFO ] 2022-03-30 14:47:12.413 [main] Runner - true
