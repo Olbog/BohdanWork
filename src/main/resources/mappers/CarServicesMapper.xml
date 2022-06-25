@@ -1,0 +1,19 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.homework.dao.interfaces.ICarServicesDAO">
+    <resultMap type="com.solvd.homework.dao.models.CarServices" id="CarServicesResultMap" autoMapping="false">
+        <id column="id" property="id"/>
+        <result column="status" property="status"/>
+    </resultMap>
+    <insert id="saveEntity" parameterType="com.solvd.homework.dao.models.CarServices" useGeneratedKeys="true" keyProperty="id">
+        INSERT into car_services (status) VALUES
+        (#{name})
+    </insert>
+    <select id="getEntityById" resultMap="CarServicesResultMap">SELECT * FROM car_services WHERE id = #{id}</select>
+    <delete id="removeEntity">delete from car_services where id = #{id}</delete>
+    <update id="updateEntity" keyProperty="id" flushCache="true"
+            statementType="PREPARED">update car_services set status=#{status} where
+        id=#{id}
+    </update>
+    <select id="getTable" resultMap="CarServicesResultMap">select * from car_services</select>
+</mapper>

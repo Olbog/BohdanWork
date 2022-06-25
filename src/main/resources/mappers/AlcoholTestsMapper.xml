@@ -1,0 +1,21 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.homework.dao.interfaces.IAlcoholTestsDAO">
+    <resultMap type="com.solvd.homework.dao.models.AlcoholTests" id="AlcoholTestsResultMap" autoMapping="false">
+        <id column="id" property="id"/>
+        <result column="results" property="results"/>
+        <result column="drivers_id" property="drivers_id"/>
+        <result column="replacement_driver_id" property="replacement_driver_id"/>
+    </resultMap>
+    <insert id="saveEntity" parameterType="com.solvd.homework.dao.models.AlcoholTests" useGeneratedKeys="true" keyProperty="id">
+        INSERT into alcohol_tests (results, drivers_id, replacement_driver_id) VALUES
+        (#{results},#{drivers_id},#{replacement_driver_id})
+    </insert>
+    <select id="getEntityById" resultMap="AlcoholTestsResultMap">SELECT * FROM alcohol_tests WHERE id = #{id}</select>
+    <delete id="removeEntity">delete from alcohol_tests where id = #{id}</delete>
+    <update id="updateEntity" keyProperty="id" flushCache="true"
+            statementType="PREPARED">update alcohol_tests set results=#{results},drivers_id=#{drivers_id},replacement_driver_id=#{replacement_driver_id} where
+        id=#{id}
+    </update>
+    <select id="getTable" resultMap="AlcoholTestsResultMap">select * from alcohol_tests</select>
+</mapper>

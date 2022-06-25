@@ -1,0 +1,21 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.homework.dao.interfaces.IDriverDAO">
+    <resultMap type="com.solvd.homework.dao.models.Driver" id="DriverResultMap" autoMapping="false">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="e-mail" property="email"/>
+        <result column="age" property="age"/>
+    </resultMap>
+    <insert id="saveEntity" parameterType="com.solvd.homework.dao.models.Driver" useGeneratedKeys="true" keyProperty="id">
+        INSERT into drivers (name, email, age) VALUES
+        (#{name},#{email},#{age})
+    </insert>
+    <select id="getEntityById" resultMap="DriverResultMap">SELECT * FROM drivers WHERE id = #{id}</select>
+    <delete id="removeEntity">delete from drivers where id = #{id}</delete>
+    <update id="updateEntity" keyProperty="id" flushCache="true"
+            statementType="PREPARED">update drivers set name=#{name},email=#{email},age=#{age} where
+        id=#{id}
+    </update>
+    <select id="getTable" resultMap="DriverResultMap">select * from drivers</select>
+</mapper>

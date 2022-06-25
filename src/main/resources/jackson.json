@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "brand": "Volvo",
+    "model": "volvo s460",
+    "drivers": [
+      {
+        "driver": {
+          "name": "Alex",
+          "surname": "Ivanov",
+          "birthday": "19/11/1994"
+        }
+      }
+    ]
+  }]

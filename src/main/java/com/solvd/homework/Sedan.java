@@ -1,6 +1,6 @@
 package com.solvd.homework;
 
-import com.solvd.homework.funcInterface.DescriptionColor;
+import com.solvd.homework.dao.interfaces.funcInterface.DescriptionColor;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 

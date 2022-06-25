@@ -1,0 +1,20 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.homework.dao.interfaces.ICategoriesDAO">
+    <resultMap type="com.solvd.homework.dao.models.Categories" id="CategoriesResultMap" autoMapping="false">
+        <id column="id" property="id"/>
+        <result column="category" property="category"/>
+        <result column="license_id" property="license_id"/>
+    </resultMap>
+    <insert id="saveEntity" parameterType="com.solvd.homework.dao.models.Categories" useGeneratedKeys="true" keyProperty="id">
+        INSERT into categories (category, license_id) VALUES
+        (#{category},#{license_id})
+    </insert>
+    <select id="getEntityById" resultMap="CategoriesResultMap">SELECT * FROM categories WHERE id = #{id}</select>
+    <delete id="removeEntity">delete from categories where id = #{id}</delete>
+    <update id="updateEntity" keyProperty="id" flushCache="true"
+            statementType="PREPARED">update categories set category=#{category},license_id=#{license_id} where
+        id=#{id}
+    </update>
+    <select id="getTable" resultMap="CategoriesResultMap">select * from categories</select>
+</mapper>

@@ -1,0 +1,20 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.homework.dao.interfaces.IDistributorsDAO">
+    <resultMap type="com.solvd.homework.dao.models.Distributors" id="DistributorsResultMap" autoMapping="false">
+        <id column="id" property="id"/>
+        <result column="Replacement_drivers_id" property="Replacement_drivers_id"/>
+        <result column="Park_Cars_id" property="Park_Cars_id"/>
+    </resultMap>
+    <insert id="saveEntity" parameterType="com.solvd.homework.dao.models.Distributors" useGeneratedKeys="true" keyProperty="id">
+        INSERT into distributors (Replacement_drivers_id, Park_Cars_id) VALUES
+        (#{Replacement_drivers_id},#{Park_Cars_id})
+    </insert>
+    <select id="getEntityById" resultMap="DistributorsResultMap">SELECT * FROM distributors WHERE id = #{id}</select>
+    <delete id="removeEntity">delete from distributors where id = #{id}</delete>
+    <update id="updateEntity" keyProperty="id" flushCache="true"
+            statementType="PREPARED">update distributors set Replacement_drivers_id=#{Replacement_drivers_id},Park_Cars_id=#{Park_Cars_id} where
+        id=#{id}
+    </update>
+    <select id="getTable" resultMap="DistributorsResultMap">select * from distributors</select>
+</mapper>
